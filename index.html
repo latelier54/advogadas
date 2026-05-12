@@ -417,14 +417,14 @@ button{font:inherit;cursor:pointer;border:none;background:none}
   .svc-heading{font-size:17px !important;line-height:1.4 !important;letter-spacing:0 !important;text-align:center !important;word-break:break-word;overflow-wrap:anywhere;max-width:calc(100vw - 60px) !important;display:block}
   .services-intro .lead{text-align:center;font-size:13px;word-break:break-word}
   .services-intro .btn{display:inline-flex}
-  .svc-scroll-wrap{overflow:hidden;max-width:100%}
-  .svc-scroll{scroll-snap-type:x mandatory !important;overflow-x:scroll !important;max-width:100%;-webkit-overflow-scrolling:touch !important;touch-action:pan-x;overscroll-behavior-x:contain}
-  .svc-card{min-width:calc(100vw - 60px) !important;flex:0 0 calc(100vw - 60px) !important;scroll-snap-align:start !important;text-align:center}
+  .svc-scroll-wrap{overflow:visible;max-width:100%}
+  .svc-scroll{display:flex !important;flex-direction:column !important;overflow:visible !important;scroll-snap-type:none !important;gap:16px !important;width:100% !important}
+  .svc-card{min-width:unset !important;flex:none !important;width:100% !important;scroll-snap-align:none !important;text-align:center;min-height:unset}
   .svc-ic{margin:0 auto}
   .svc-fade{display:none}
-  /* services pager mobile exclusivo */
+  /* services pager oculto no mobile */
   .services-pager{display:none !important}
-  .svc-mobile-pager{display:flex !important;align-items:center;justify-content:center;gap:10px;margin-top:16px}
+  .svc-mobile-pager{display:none !important}
 
   /* === GALLERY === */
   .section{padding:40px 30px !important;text-align:center}
