@@ -338,7 +338,7 @@ button{font:inherit;cursor:pointer;border:none;background:none}
   .sobre-portrait{order:-1;min-height:300px}
   .sobre-portrait .arch{width:100%;clip-path:none;border-radius:var(--radius-xl);aspect-ratio:16/9}
   .sobre-portrait .deco-circle{display:none}
-  .services{padding:48px 30px 60px;margin:12px 0;overflow:hidden}
+  .services{padding:48px 30px 60px;margin:12px 0}
   .services-layout{grid-template-columns:1fr;gap:28px}
   .section{padding:48px 30px !important;margin:0 0 12px}
   .gallery-block{grid-template-columns:1fr;gap:28px}
@@ -411,14 +411,14 @@ button{font:inherit;cursor:pointer;border:none;background:none}
   .callout h2{font-size:26px;max-width:none}
 
   /* === SERVICES === */
-  .services{padding:40px 30px 32px;margin:12px 0;overflow:hidden;max-width:100%}
+  .services{padding:40px 30px 32px;margin:12px 0;max-width:100%}
   .services-layout{grid-template-columns:1fr;gap:24px;max-width:100%}
   .services-intro{text-align:center;max-width:100%}
   .svc-heading{font-size:17px !important;line-height:1.4 !important;letter-spacing:0 !important;text-align:center !important;word-break:break-word;overflow-wrap:anywhere;max-width:calc(100vw - 60px) !important;display:block}
   .services-intro .lead{text-align:center;font-size:13px;word-break:break-word}
   .services-intro .btn{display:inline-flex}
-  .svc-scroll-wrap{overflow:visible;max-width:100%}
-  .svc-scroll{scroll-snap-type:x mandatory !important;overflow-x:scroll !important;max-width:100%;-webkit-overflow-scrolling:touch !important;touch-action:pan-x}
+  .svc-scroll-wrap{overflow:hidden;max-width:100%}
+  .svc-scroll{scroll-snap-type:x mandatory !important;overflow-x:scroll !important;max-width:100%;-webkit-overflow-scrolling:touch !important;touch-action:pan-x;overscroll-behavior-x:contain}
   .svc-card{min-width:calc(100vw - 60px) !important;flex:0 0 calc(100vw - 60px) !important;scroll-snap-align:start !important;text-align:center}
   .svc-ic{margin:0 auto}
   .svc-fade{display:none}
