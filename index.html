@@ -294,7 +294,7 @@ button{font:inherit;cursor:pointer;border:none;background:none}
 /* ============================================================
    FOOTER
    ============================================================ */
-.foot{background:var(--gold);color:#fff;padding:72px 100px 36px;margin:20px 0;border-radius:0;position:relative;overflow:hidden}
+.foot{background:var(--gold);color:#fff;padding:72px 100px 36px;margin:20px 0 0;border-radius:0;position:relative;overflow:hidden}
 .foot::before{
   content:"";position:absolute;left:-80px;bottom:-80px;width:340px;height:340px;border-radius:50%;
   border:1.5px solid rgba(255,255,255,.14);
@@ -350,7 +350,7 @@ button{font:inherit;cursor:pointer;border:none;background:none}
   .testi-head{padding:0 30px}
   .faq{padding:60px 30px;margin:12px 0}
   .faq-card{padding:40px 30px}
-  .foot{padding:48px 30px 28px;margin:12px 0}
+  .foot{padding:48px 30px 28px;margin:12px 0 0}
   .foot-contact{grid-template-columns:1fr;padding:32px 0;gap:0}
   .foot-contact-item{flex-direction:column;align-items:center;text-align:center;padding:24px 0;border-right:none !important}
   .foot-contact-item:not(:last-child){border-bottom:1px solid rgba(255,255,255,.22)}
@@ -458,7 +458,7 @@ button{font:inherit;cursor:pointer;border:none;background:none}
   .faq-q{font-size:13.5px;text-align:left}
 
   /* === FOOTER === */
-  .foot{padding:40px 30px 24px;margin:12px 0}
+  .foot{padding:40px 30px 24px;margin:12px 0 0}
   .foot-name{font-size:17px;letter-spacing:.07em}
   .foot-name small{font-size:8px}
   .foot-ci-info span{font-size:13px}
@@ -863,6 +863,7 @@ svcNext.addEventListener('click', () => { clearInterval(svcAutoTimer); svcScroll
 // Desktop auto-scroll services
 let svcAutoTimer;
 function startSvcAuto() {
+  if (window.innerWidth <= 640) return;
   clearInterval(svcAutoTimer);
   svcAutoTimer = setInterval(() => {
     const max = svcScroll.scrollWidth - svcScroll.clientWidth;
@@ -875,6 +876,7 @@ function startSvcAuto() {
 }
 svcScroll.addEventListener('mouseenter', () => clearInterval(svcAutoTimer));
 svcScroll.addEventListener('mouseleave', startSvcAuto);
+svcScroll.addEventListener('touchstart', () => clearInterval(svcAutoTimer), {passive: true});
 startSvcAuto();
 
 // Services mobile pager
@@ -886,29 +888,31 @@ if(svcMobPrev) {
   const svcCards = Array.from(svcScroll.querySelectorAll('.svc-card'));
   let svcIdx = 0;
 
+  function cardStepWidth() {
+    return svcCards[0] ? svcCards[0].offsetWidth + 20 : 320;
+  }
+
   function goToSvcCard(idx) {
     svcIdx = Math.max(0, Math.min(svcCards.length - 1, idx));
-    svcScroll.scrollLeft = svcCards[svcIdx].offsetLeft;
+    svcScroll.scrollTo({left: svcIdx * cardStepWidth(), behavior: 'smooth'});
     const max = svcScroll.scrollWidth - svcScroll.clientWidth;
-    if(svcMobFill) svcMobFill.style.width = (max > 0 ? (svcScroll.scrollLeft / max) * 100 : 0) + '%';
+    if(svcMobFill) svcMobFill.style.width = (max > 0 ? Math.min((svcIdx * cardStepWidth() / max) * 100, 100) : 0) + '%';
   }
 
   svcScroll.addEventListener('scroll', () => {
     const max = svcScroll.scrollWidth - svcScroll.clientWidth;
     if(svcMobFill) svcMobFill.style.width = (max > 0 ? (svcScroll.scrollLeft / max) * 100 : 0) + '%';
-    svcIdx = Math.round(svcScroll.scrollLeft / (svcCards[0] ? svcCards[0].offsetWidth + 20 : 300));
+    svcIdx = Math.round(svcScroll.scrollLeft / cardStepWidth());
   });
 
   svcMobPrev.addEventListener('click', () => {
     clearInterval(svcAutoTimer);
     goToSvcCard(svcIdx - 1);
-    setTimeout(startSvcAuto, 3000);
   });
 
   svcMobNext.addEventListener('click', () => {
     clearInterval(svcAutoTimer);
     goToSvcCard(svcIdx >= svcCards.length - 1 ? 0 : svcIdx + 1);
-    setTimeout(startSvcAuto, 3000);
   });
 }
 
