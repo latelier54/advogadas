@@ -50,7 +50,9 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="preload" as="image" href="hero.png" />
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" /></noscript>
 
 <style>
 /* === Design System tokens (Lexovia DS, gold/cream lean) === */
@@ -60,7 +62,7 @@
   --forest-deep:   #16302C;
   --gold:          #C49A5C;
   --gold-soft:     #E4C896;
-  --gold-deep:     #A87D43;
+  --gold-deep:     #865F2E;
   --gold-bg:       #D9B584;
   --cream:         #F6F1E6;
   --cream-2:       #FBF7EE;
@@ -169,7 +171,7 @@ button{font:inherit;cursor:pointer;border:none;background:none}
 .g-tile svg{width:100%;height:100%;display:block}
 
 .consultorio{padding-top:8px}
-.consultorio h3{font-family:"DM Sans";color:var(--forest);font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;border-top:1px solid var(--gold);padding-top:14px;margin-bottom:22px;display:inline-block;padding-right:28px}
+.consultorio h2{font-family:"DM Sans";color:var(--forest);font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;border-top:1px solid var(--gold);padding-top:14px;margin-bottom:22px;display:inline-block;padding-right:28px}
 .consultorio p{font-size:14.5px;line-height:1.7;color:var(--text);margin-top:14px}
 .consultorio p:first-of-type{margin-top:0}
 .consultorio .pin{font-weight:600;color:var(--forest);margin-top:22px;display:block;font-size:13.5px}
@@ -208,7 +210,7 @@ button{font:inherit;cursor:pointer;border:none;background:none}
 .svc-card{background:var(--cream-2);border-radius:var(--radius-lg);padding:40px 32px 36px;min-height:360px;flex:0 0 calc(50% - 10px);display:flex;flex-direction:column;gap:12px;position:relative;border:1px solid transparent;transition:all .25s ease;scroll-snap-align:start}
 .svc-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift);background:var(--cream-3)}
 .svc-ic{width:54px;height:54px;border-radius:50%;background:var(--paper);border:1px solid var(--rule);display:grid;place-items:center;color:var(--gold-deep);margin-bottom:8px}
-.svc-card h4{font-family:"DM Sans";font-weight:500;font-size:17px;color:var(--text);line-height:1.35}
+.svc-card h3{font-family:"DM Sans";font-weight:500;font-size:17px;color:var(--text);line-height:1.35}
 .svc-card h4 b{font-weight:700}
 .svc-card p{font-size:13px;color:var(--text-muted);line-height:1.6}
 .services-pager{display:flex;align-items:center;gap:18px;margin-top:20px}
@@ -316,9 +318,9 @@ button{font:inherit;cursor:pointer;border:none;background:none}
 .foot-contact-item:last-child{padding-right:0}
 .foot-ci-icon{width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(255,255,255,.45);display:grid;place-items:center;flex:none;color:#fff}
 .foot-ci-info{display:flex;flex-direction:column;gap:5px}
-.foot-ci-info strong{font-family:"DM Sans";font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.65);font-weight:600;margin-bottom:2px}
+.foot-ci-info strong{font-family:"DM Sans";font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.82);font-weight:600;margin-bottom:2px}
 .foot-ci-info span{font-size:13.5px;color:#fff;line-height:1.55}
-.foot-bottom{position:relative;z-index:1;margin-top:32px;display:flex;justify-content:space-between;font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.65)}
+.foot-bottom{position:relative;z-index:1;margin-top:32px;display:flex;justify-content:space-between;font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.88)}
 
 /* WhatsApp floating */
 .whats-float{position:fixed;right:30px;bottom:30px;width:54px;height:54px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;box-shadow:0 12px 24px -6px rgba(37,211,102,.5);z-index:9}
@@ -519,6 +521,8 @@ button{font:inherit;cursor:pointer;border:none;background:none}
   </header>
 
 
+  <main>
+
   <!-- ======================= HERO ======================= -->
   <section class="hero">
     <div class="hero-card">
@@ -548,7 +552,7 @@ button{font:inherit;cursor:pointer;border:none;background:none}
 
       <div class="sobre-portrait">
         <div class="arch">
-          <img src="adovogada2.png" alt="Dra. Letícia Maia" style="width:100%;height:100%;object-fit:cover;display:block"/>
+          <img src="adovogada2.png" alt="Dra. Ana Clara Mendonça" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"/>
         </div>
         <div class="deco-circle"></div>
         <div class="deco-circle small"></div>
@@ -584,7 +588,7 @@ button{font:inherit;cursor:pointer;border:none;background:none}
                   <circle cx="16" cy="13" r="3"/>
                 </svg>
               </div>
-              <h4>Divórcio e <b>Separação</b></h4>
+              <h3>Divórcio e <b>Separação</b></h3>
               <p>Divórcio consensual ou litigioso, separação de bens e dissolução de união estável em São Paulo. Condução estratégica para proteger seus direitos e reduzir o desgaste do processo.</p>
             </div>
 
@@ -596,7 +600,7 @@ button{font:inherit;cursor:pointer;border:none;background:none}
                   <path d="M16 14v6M13 17h6"/>
                 </svg>
               </div>
-              <h4>Guarda de Filhos e <b>Regime de Visitas</b></h4>
+              <h3>Guarda de Filhos e <b>Regime de Visitas</b></h3>
               <p>Regularização de guarda compartilhada ou unilateral e definição do regime de visitas. Atuação focada no melhor interesse das crianças e na preservação dos vínculos familiares.</p>
             </div>
 
@@ -608,7 +612,7 @@ button{font:inherit;cursor:pointer;border:none;background:none}
                   <path d="M20 10c2 0 4 1.5 4 4s-2 4-4 4"/>
                 </svg>
               </div>
-              <h4>Pensão <b>Alimentícia</b></h4>
+              <h3>Pensão <b>Alimentícia</b></h3>
               <p>Fixação, revisão e execução de pensão alimentícia em São Paulo. Para garantir o sustento dos filhos após a separação ou revisar um valor defasado — atuo com rapidez e estratégia.</p>
             </div>
 
@@ -620,24 +624,24 @@ button{font:inherit;cursor:pointer;border:none;background:none}
                   <path d="M10 6l2 2M22 6l-2 2M10 26l2-2M22 26l-2-2"/>
                 </svg>
               </div>
-              <h4>Inventário e <b>Planejamento Sucessório</b></h4>
+              <h3>Inventário e <b>Planejamento Sucessório</b></h3>
               <p>Inventário judicial e extrajudicial, testamento e planejamento sucessório em São Paulo. Partilha de bens com segurança jurídica, agilidade e transparência para toda a família.</p>
             </div>
           </div>
           <div class="svc-fade"></div>
         </div>
         <div class="services-pager">
-          <button class="arr" id="svcPrev"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 2L4 7l5 5"/></svg></button>
+          <button class="arr" id="svcPrev" aria-label="Serviço anterior"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 2L4 7l5 5"/></svg></button>
           <div class="bar"><div class="bar-fill" id="svcBar"></div></div>
-          <button class="arr" id="svcNext"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 2l5 5-5 5"/></svg></button>
+          <button class="arr" id="svcNext" aria-label="Próximo serviço"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 2l5 5-5 5"/></svg></button>
         </div>
       </div>
     </div>
     <!-- pager mobile: fora do grid para evitar overflow:hidden -->
     <div class="svc-mobile-pager">
-      <button class="svc-mob-arr" id="svcMobPrev"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 2L4 7l5 5"/></svg></button>
+      <button class="svc-mob-arr" id="svcMobPrev" aria-label="Serviço anterior"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 2L4 7l5 5"/></svg></button>
       <div class="svc-mob-bar"><div class="svc-mob-fill" id="svcMobFill"></div></div>
-      <button class="svc-mob-arr" id="svcMobNext"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 2l5 5-5 5"/></svg></button>
+      <button class="svc-mob-arr" id="svcMobNext" aria-label="Próximo serviço"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 2l5 5-5 5"/></svg></button>
     </div>
   </section>
 
@@ -646,16 +650,16 @@ button{font:inherit;cursor:pointer;border:none;background:none}
   <section class="section" style="padding:96px 100px 24px">
     <div class="gallery-block">
       <div class="gallery-grid">
-        <div class="g-tile"><img src="01.png" alt="Escritório Dra. Ana Clara Mendonça" style="width:100%;height:100%;object-fit:cover;display:block"/></div>
-        <div class="g-tile"><img src="02.png" alt="Escritório de advocacia São Paulo" style="width:100%;height:100%;object-fit:cover;display:block"/></div>
-        <div class="g-tile"><img src="03.png" alt="Ambiente do escritório" style="width:100%;height:100%;object-fit:cover;display:block"/></div>
-        <div class="g-tile"><img src="04.png" alt="Sala de atendimento" style="width:100%;height:100%;object-fit:cover;display:block"/></div>
-        <div class="g-tile"><img src="05.png" alt="Detalhes do escritório" style="width:100%;height:100%;object-fit:cover;display:block"/></div>
-        <div class="g-tile"><img src="06.png" alt="Recepção do escritório" style="width:100%;height:100%;object-fit:cover;display:block"/></div>
+        <div class="g-tile"><img src="01.png" alt="Escritório Dra. Ana Clara Mendonça" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"/></div>
+        <div class="g-tile"><img src="02.png" alt="Escritório de advocacia São Paulo" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"/></div>
+        <div class="g-tile"><img src="03.png" alt="Ambiente do escritório" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"/></div>
+        <div class="g-tile"><img src="04.png" alt="Sala de atendimento" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"/></div>
+        <div class="g-tile"><img src="05.png" alt="Detalhes do escritório" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"/></div>
+        <div class="g-tile"><img src="06.png" alt="Recepção do escritório" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"/></div>
       </div>
 
       <div class="consultorio">
-        <h3>O escritório:</h3>
+        <h2>O escritório:</h2>
         <p>Aqui você encontra um espaço pensado para que possa falar abertamente sobre o que está vivendo — sem pressa e sem julgamentos. Cada atendimento é construído a partir da sua realidade.</p>
         <p>Atendo clientes que enfrentam <b>divórcio</b>, disputas de <b>guarda de filhos</b>, processos de <b>inventário</b>, revisão de <b>pensão alimentícia</b> e estruturação de <b>planejamento sucessório</b>. Em todos os casos, meu compromisso é defendê-los com a mesma dedicação que dedicaria à minha própria família.</p>
         <p>A advocacia em Direito de Família vai muito além dos processos — é sobre proteger relações, patrimônio e o futuro das pessoas.</p>
@@ -693,9 +697,9 @@ button{font:inherit;cursor:pointer;border:none;background:none}
       </div>
     </div>
     <div class="testi-pager">
-      <button class="testi-arr" id="testiPrev"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 2L4 7l5 5"/></svg></button>
+      <button class="testi-arr" id="testiPrev" aria-label="Depoimento anterior"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 2L4 7l5 5"/></svg></button>
       <div class="testi-bar"><div class="testi-bar-fill" id="testiBarFill"></div></div>
-      <button class="testi-arr" id="testiNext"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 2l5 5-5 5"/></svg></button>
+      <button class="testi-arr" id="testiNext" aria-label="Próximo depoimento"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 2l5 5-5 5"/></svg></button>
     </div>
   </section>
 
@@ -776,6 +780,8 @@ button{font:inherit;cursor:pointer;border:none;background:none}
   </section>
 
 
+  </main>
+
   <!-- ======================= FOOTER ======================= -->
   <footer class="foot" id="contato">
 
@@ -827,7 +833,7 @@ button{font:inherit;cursor:pointer;border:none;background:none}
 </div>
 
 <!-- WhatsApp floating button -->
-<a class="whats-float" href="#">
+<a class="whats-float" href="#" aria-label="Falar pelo WhatsApp">
   <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A12 12 0 0 0 3 17l-2 6 6-2a12 12 0 0 0 13.5-17.5zM12 22a10 10 0 0 1-5-1.4l-.4-.2-3.6 1 1-3.4-.2-.4A10 10 0 1 1 12 22zm5.4-7.3c-.3-.1-1.7-.8-2-.9s-.5-.1-.7.1-.8 1-1 1.2-.4.2-.7.1c-1.5-.8-2.6-1.4-3.6-3-.3-.5.3-.5.8-1.6.1-.2.1-.4 0-.6s-.7-1.6-1-2.2-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.1 1.1-1.1 2.7 1.1 3.1 1.3 3.3c.1.2 2.2 3.4 5.4 4.8.8.3 1.4.5 1.9.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
 </a>
 
